@@ -6,14 +6,11 @@ The final sorted array should not be returned by the function, but instead be st
 
 def merge_sorted_array(nums1: list, m, nums2: list, n):
     
-    if m == 0:
-        nums1 = nums2
-    else:
         nums0 = nums1[:m]
         i = 0
         j = 0
         k = 0
-        print(nums0,nums2)
+       
         while i < m and j < n:
             if nums2[j] >= nums0[i]:
                 nums1[k] = nums0[i]
@@ -32,22 +29,15 @@ def merge_sorted_array(nums1: list, m, nums2: list, n):
             nums1[k] = nums2[j]
             k += 1
             j += 1
-    print(nums1)
 
-nums1 = [2,0]
-m = 1
+        return nums1
+
+nums1 = [0]
+m = 0
 nums2 = [1]
+
 n = len(nums2)
 
 res = merge_sorted_array(nums1, m, nums2, n)
 print(res)
 
-def plus_one(digits: list):
-        n = len(digits) - 1
-        k = 1
-        for i in range(n,-1,-1):
-            k, digits[i] = divmod(digits[i]+k, 10)
-        
-        if k > 0:
-            digits = [k] + digits
-        return digits
