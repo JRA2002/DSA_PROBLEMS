@@ -8,11 +8,27 @@ No two letters map to the same word, and no two words map to the same letter.'''
 
 def word_pattern(pattern: str, s: str):
     hashP = {}
+    hashS = {}
+    i = 1
     for c in pattern:
         if c not in hashP:
-            hashP[c] = ord(c)
+            hashP[c] = str(i)
+            i += 1
+    s1 = ''
+    for c in pattern:
+        s1 += hashP[c]
+        
+    s = s.split(" ")
+    i = 1
+    s2 = ''
+    for w in s:
+        if w not in hashS:
+            hashS[w] = str(i)
+            i += 1
+    for w in s:
+        s2 += hashS[w]
 
-    print(hashP)
+    return s1 == s2
 
 pattern = "abba"
 s = "dog cat cat dog"
