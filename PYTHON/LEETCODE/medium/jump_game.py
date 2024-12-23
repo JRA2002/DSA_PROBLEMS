@@ -3,8 +3,14 @@
 Return true if you can reach the last index, or false otherwise.'''
 
 def jump_game(nums: list):
-    pass
+    goal = len(nums) - 1
+    
+    for i in range(len(nums) - 1, -1, -1):
+        if i + nums[i] >= goal:
+            goal = i
 
-nums = [2,3,1,1,4]
+    return goal if goal == 0 else False
+
+nums = [2,0,0,0,2]
 
 print(jump_game(nums))
