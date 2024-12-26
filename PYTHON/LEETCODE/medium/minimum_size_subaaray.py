@@ -5,18 +5,16 @@ subarray
 def min_length(target: int , nums: list):
     minL = len(nums) + 1
     l = 0
-    r = 0
     suma = 0
-    while l <= len(nums) - 1 and l <= r and r <= len(nums) - 1:
-        
-        if suma < target:
-            r += 1
-        else:
-            minL = min(minL, r-l+1)
-            suma = suma - nums[l] + nums[r]
+    for i in range(len(nums)):
+        suma += nums[i]
+        while suma >= target:
+            minL = min(minL, i - l + 1)
+            suma -= nums[l]
             l += 1
-        print(nums[l], nums[r])
-
+            
+    if minL == len(nums)+1:
+        return 0
     return minL
 
 target = 7
