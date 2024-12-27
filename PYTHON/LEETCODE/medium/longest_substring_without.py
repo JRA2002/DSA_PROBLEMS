@@ -5,6 +5,7 @@ substring
 def length_substring_nonrepeating(s: str):
     
     maxC = 0
+
     for i in range(len(s)):
         count = 0
         mapa = {}
@@ -20,6 +21,20 @@ def length_substring_nonrepeating(s: str):
 
 #optimal approach
 
+def length_substring_nonrepeating2(s: str):
+    
+    ans = set()
+    l = 0
+    maxC = 0
+    for c in range(len(s)):
+        while s[c] in ans:
+            ans.remove(s[l])
+            l += 1
+        ans.add(s[c])
+        maxC = max(maxC, c - l + 1)
+    return maxC
+
+
 s = "pwwkew"
 
-print(length_substring_nonrepeating(s))
+print(length_substring_nonrepeating2(s))
