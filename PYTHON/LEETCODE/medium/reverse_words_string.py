@@ -7,7 +7,13 @@ Return a string of the words in reverse order concatenated by a single space.
 Note that s may contain leading or trailing spaces or multiple spaces between two words. The returned string should only have a single space separating the words. Do not include any extra spaces'''
 
 def reverse_words(s: str):
-    pass
+    res = s.split()
+    ans = ''
+
+    for i in range(len(res) - 1, 0, -1):
+        ans += res[i] + " "
+    ans += res[0]
+    return ans
 
 s = "the sky is blue"
 

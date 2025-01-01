@@ -7,29 +7,32 @@ greater than target. If such a character does not exist, return the
 first character in letters.'''
 
 def next_greater_letter(letters):
-    i = 0
-    j = len(letters) - 1
+        l = 0 
+        r = len(letters) - 1
 
-    while i <= j:
-        midd = (i+j)//2
-        if letters[midd] > target:
-            j -= 1
-        elif letters[midd] == target:
-            if midd == j:
-                print('yes')
+        while l <= r:
+            m = (l+r)//2
+            if letters[m] == target:
+                while m+1 <= len(letters) - 1 and letters[m+1] == target:
+                    m += 1
+                if m == len(letters) - 1:
+                    return letters[0]
+                else:
+                    return letters[m+1]
+            elif letters[m] < target:
+                l = m + 1
+            else:
+                r = m - 1
+    
+        if target < letters[m] and m == 0:
+            return letters[0]
+        if target > letters[m]:
+            if m == len(letters) - 1 :
                 return letters[0]
             else:
-                print('no')
-                return letters[midd+1]
+                return letters[m+1]
         else:
-            i += 1
-    if midd <= len(letters) - 1:
-        if letters[midd] < target:
-            return letters[0]
-        return letters[midd]
-    else:
-        print(midd)
-        return letters[0]
+            return letters[m]
 
 letters = ["c","e","j","l"]
 target = 'n'
