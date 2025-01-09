@@ -15,16 +15,20 @@ def two_sum(arr: list, target):
             i += 1
     return  False
 
-# another approach
+# optimal approach
 
 def two_sum2(arr: list, target):
-    for num in arr:
-        if (target - num) in arr:
+    mapa = {}
+    for i in range(len(arr)):
+        if target - arr[i] not in mapa:
+            mapa[arr[i]] = i
+        else:
             return True
+        
     return False
 
-arr = [1, 4, 45, 6, 10, 8]
-target = 16
+arr = [1,8,2,6,5]
+target = 27
 
 res = two_sum2(arr, target)
 print(res)
