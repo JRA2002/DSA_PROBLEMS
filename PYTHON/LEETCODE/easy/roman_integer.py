@@ -54,6 +54,6 @@ def roman_integer(s: str):
     
     return ans
 
-s = "MCMXCIX"
+s = "CMXLII"
 
 print(roman_integer(s))

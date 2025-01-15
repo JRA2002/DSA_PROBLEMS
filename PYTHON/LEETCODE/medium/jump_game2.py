@@ -7,8 +7,23 @@ i + j < n
 Return the minimum number of jumps to reach nums[n - 1]. The test cases are generated such that you can reach nums[n - 1].'''
 
 def jump_game(nums: list):
-    pass
+        l = 0
+        r = 0
 
-nums = [2,3,1,1,4]
+        ans = 0
+    
+        while r < len(nums) - 1:
+            forward = 0
+            for i in range(l, r+1):
+                forward = max(forward, i + nums[i])
+                
+            l = r + 1
+            r = forward
+            ans += 1
+
+        return ans
+
+
+nums = [1,2,3]
 
 print(jump_game(nums))

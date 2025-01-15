@@ -5,9 +5,33 @@ If the value starts with 4 or 9 use the subtractive form representing one symbol
 Only powers of 10 (I, X, C, M) can be appended consecutively at most 3 times to represent multiples of 10. You cannot append 5 (V), 50 (L), or 500 (D) multiple times. If you need to append a symbol 4 times use the subtractive form.
 Given an integer, convert it to a Roman numeral.'''
 
-def integr_roman(num: int):
-    pass
+def integer_roman(num: int):
+    romans = {
+    1000: "M",
+    900: "CM",
+    500: "D",
+    400: "CD",
+    100: "C",
+    90: "XC",
+    50: "L",
+    40: "XL",
+    10: "X",
+    9: "IX",
+    5: "V",
+    4: "IV",
+    1: "I"
+}
+    ans = ''
+
+    for key in romans:
+
+        while num >= key:
+            ans += romans[key]
+            num = num - key
+
+    return ans
+
 
 num = 3749
 
-print(integr_roman(num))
+print(integer_roman(num))
