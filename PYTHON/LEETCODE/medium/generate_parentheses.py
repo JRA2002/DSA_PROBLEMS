@@ -18,22 +18,18 @@ def generate_parentheses(n: int):
 
         if op == cl and op == n:
             res.append("".join(stack))
-            print(stack)
             return
 
         if n > op:
             stack.append('(')
-            print(stack)
             backtrack(op + 1, cl)
             stack.pop()
-            print(stack)
-
+          
         if op > cl:
             stack.append(')')
-            print(stack)
             backtrack(op, cl + 1)
             stack.pop()
-            print(stack)
+          
 
     backtrack(0, 0)
 
