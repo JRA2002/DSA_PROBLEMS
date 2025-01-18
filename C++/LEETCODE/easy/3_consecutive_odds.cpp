@@ -3,7 +3,6 @@
 using namespace std;
 int consecutive(vector<int>& nums) {
        int count = 0;
-
        for(int i; i<nums.size();i++){
             if(nums[i] % 2 == 0){
                 count++;

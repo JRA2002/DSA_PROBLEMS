@@ -3,8 +3,24 @@
 You may return the answer in any order.'''
 
 def combinations(n: int, k: int):
-  
-    return 
+   
+    ans = []
+    aux = []
+
+    def backtrack(m):
+        if k == len(aux):
+            ans.append(aux[:])
+            return
+        
+        for num in range(m, n + 1):
+          
+                aux.append(num)
+                backtrack(num+1)
+                aux.pop()
+                
+    backtrack(1)
+
+    return ans
             
 
 n = 4
