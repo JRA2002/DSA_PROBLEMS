@@ -1,37 +1,34 @@
 '''Given an array of integers and a number k. Find the count of distinct elements in every window of size k in the array.'''
 
-def count_distinct(k: int, arr: list):
+def count_distinct(arr: list, k: int):
     ans = []
-    n = len(arr)
-    hashmap = {}
-    count = 0
+    mapa = {}
+    
     for i in range(k):
-        if arr[i] not in hashmap:
-            hashmap[arr[i]] = 1
-            count += 1
+        if arr[i] not in mapa:
+            mapa[arr[i]] = 1
         else:
-            hashmap[arr[i]] += 1
-    print(hashmap)
-    ans.append(count)
-    for i in range(1, n - k + 1):
-        hashmap[arr[i-1]] -= 1
-        if hashmap[arr[i-1]] == 0:
-            count -= 1
-        if arr[i+k-1] not in hashmap or hashmap[arr[i+k-1]] == 0:
-            count += 1
-            hashmap[arr[i+k-1]] = 1
+            mapa[arr[i]] += 1
+    ans.append(len(mapa))
+
+    for i in range(1, len(arr) - k + 1):
+        mapa[arr[i-1]] -= 1
+        if mapa[arr[i-1]] == 0:
+            del mapa[arr[i-1]]
+        if arr[i+k-1] not in mapa:
+            mapa[arr[i+k-1]] = 1
         else:
-            hashmap[arr[i]] += 1
-        ans.append(count)
-        print(hashmap)
+            mapa[arr[i+k-1]] += 1
+       
+        ans.append(len(mapa))
+    a = "as"
+    a.l
+
     return ans
 
 
-def count_distinct2(k: int, arr: list):
-    pass
 
-k = 2
-arr = [1, 1,1,1,1]
+arr = [8, 10, 6]
+k = 1
 
-res = count_distinct(k, arr)
-print(res)
+print(count_distinct(arr, k))

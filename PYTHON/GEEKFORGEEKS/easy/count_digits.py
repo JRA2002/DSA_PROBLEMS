@@ -4,8 +4,21 @@ A digit d of n divides n evenly if the remainder when n is divided by d is 0 (n 
 Digits of n should be checked individually. If a digit is 0, it should be ignored because division by 0 is undefined.'''
 
 def count_digits(n: int):
-    pass
+    count = 0
+    temp = n
 
-n = 2446
+    while temp > 0:
+        r = temp % 10
+        if r != 0 and n % r == 0:
+            count += 1
+
+        temp = temp // 10
+ 
+
+    return count
+
+
+
+n = 12
 
 print(count_digits(n))
