@@ -1,10 +1,10 @@
 #include <iostream>
 #include <vector>
 using namespace std;
-int consecutive(vector<int>& nums) {
+int two_sum(vector<int>& nums) {
        int count = 0;
        
-       for(int i; i<nums.size();i++){
+       for(int i; i<nums.size(); i++){
             if(nums[i] % 2 == 0){
                 count++;
                 if(count == 3){
@@ -16,6 +16,6 @@ int consecutive(vector<int>& nums) {
 }
 int main() {
     vector<int> nums = {2,2,2,3};
-    int res = consecutive(nums);
+    int res = two_sum(nums);
     cout<<res<<endl;
 }
